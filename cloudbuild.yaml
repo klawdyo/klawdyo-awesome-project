@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/klawdyo-awesome-project/klawdyo-awesome-project:$SHORT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/klawdyo-awesome-project/$REPO_NAME:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/klawdyo-awesome-project/klawdyo-awesome-project:$SHORT_SHA']
+  args: ['push', 'gcr.io/klawdyo-awesome-project/$REPO_NAME:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'klawdyo-awesome-project', '--region=us-central1', '--platform=managed', '--image=gcr.io/klawdyo-awesome-project/klawdyo-awesome-project:$SHORT_SHA']
+  args: ['beta', 'run', 'deploy', '$_SERVICE_NAME', '--region=us-central1', '--platform=managed', '--image=gcr.io/klawdyo-awesome-project/$REPO_NAME:$SHORT_SHA']
 
 
 # gcloud beta run deploy klawdyo-awesome-project --region=us-central1  --platform=managed --image=gcr.io/klawdyo-awesome-project/klawdyo-awesome-project:d43b044
