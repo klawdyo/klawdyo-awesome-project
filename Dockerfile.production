@@ -7,8 +7,8 @@ ADD . /app
 # - 'ADMIN_URL=https://staging.candidapp.com.br'
 # - 'API_URL=https://staging.api.candidapp.com.br'
 
-ENV CAND_ENV=local
-ENV ADMIN_URL=http://localhost:8080
-ENV API_URL=http://localhost:3333
+ENV CAND_ENV=staging
+ENV ADMIN_URL=https://candidapp.com.br
+ENV API_URL=https://api.candidapp.com.br
 
 CMD node server.js
