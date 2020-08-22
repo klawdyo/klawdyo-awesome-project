@@ -1,3 +1,14 @@
+
+# Variáveis
+# $_DOCKERFILE
+#   Esta variável precisa ser criada nas configurações do acionador do google cloud
+#   com o caminho para o arquivo dockerfile específico daquele acionador.
+#   Ex.: _DOCKERFILE=./Dockerfile.staging
+#   Dentro deste dockerfile é necessário que as variáveis de ambiente corretas estejam
+#   definidas para o correto funcionamento do sistema.
+#   Para cadastrar essa variável, vá ao menu CLoud Build, depois em Acionadores no menu
+#   lateral. Localize o acionador que será modificado e clique no final na opção "editar"    
+
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/klawdyo-awesome-project/$REPO_NAME:$SHORT_SHA', '--file=$_DOCKERFILE', '.']
